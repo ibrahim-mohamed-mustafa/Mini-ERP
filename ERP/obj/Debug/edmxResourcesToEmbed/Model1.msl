@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="erp_systemModelStoreContainer" CdmEntityContainer="erp_systemEntities">
+    <EntitySetMapping Name="cities">
+      <EntityTypeMapping TypeName="erp_systemModel.city">
+        <MappingFragment StoreEntitySet="cities">
+          <ScalarProperty Name="state_governorate" ColumnName="state_governorate" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="city1" ColumnName="city" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="company_address">
+      <EntityTypeMapping TypeName="erp_systemModel.company_address">
+        <MappingFragment StoreEntitySet="company_address">
+          <ScalarProperty Name="address_serial" ColumnName="address_serial" />
+          <ScalarProperty Name="company_serial" ColumnName="company_serial" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="added_by" ColumnName="added_by" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="company_field_of_work">
+      <EntityTypeMapping TypeName="erp_systemModel.company_field_of_work">
+        <MappingFragment StoreEntitySet="company_field_of_work">
+          <ScalarProperty Name="company_serial" ColumnName="company_serial" />
+          <ScalarProperty Name="work_field" ColumnName="work_field" />
+          <ScalarProperty Name="added_by" ColumnName="added_by" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="company_name">
+      <EntityTypeMapping TypeName="erp_systemModel.company_name">
+        <MappingFragment StoreEntitySet="company_name">
+          <ScalarProperty Name="company_serial" ColumnName="company_serial" />
+          <ScalarProperty Name="company_name1" ColumnName="company_name" />
+          <ScalarProperty Name="added_by" ColumnName="added_by" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="company_telephone">
+      <EntityTypeMapping TypeName="erp_systemModel.company_telephone">
+        <MappingFragment StoreEntitySet="company_telephone">
+          <ScalarProperty Name="branch_serial" ColumnName="branch_serial" />
+          <ScalarProperty Name="telephone_number" ColumnName="telephone_number" />
+          <ScalarProperty Name="added_by" ColumnName="added_by" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contact_person_info">
+      <EntityTypeMapping TypeName="erp_systemModel.contact_person_info">
+        <MappingFragment StoreEntitySet="contact_person_info">
+          <ScalarProperty Name="sales_person_id" ColumnName="sales_person_id" />
+          <ScalarProperty Name="branch_serial" ColumnName="branch_serial" />
+          <ScalarProperty Name="contact_id" ColumnName="contact_id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="department" ColumnName="department" />
+          <ScalarProperty Name="is_valid" ColumnName="is_valid" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contact_person_mobile">
+      <EntityTypeMapping TypeName="erp_systemModel.contact_person_mobile">
+        <MappingFragment StoreEntitySet="contact_person_mobile">
+          <ScalarProperty Name="sales_person_id" ColumnName="sales_person_id" />
+          <ScalarProperty Name="branch_serial" ColumnName="branch_serial" />
+          <ScalarProperty Name="contact_id" ColumnName="contact_id" />
+          <ScalarProperty Name="telephone_id" ColumnName="telephone_id" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="countries">
+      <EntityTypeMapping TypeName="erp_systemModel.country">
+        <MappingFragment StoreEntitySet="countries">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="country1" ColumnName="country" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="departments_type">
+      <EntityTypeMapping TypeName="erp_systemModel.departments_type">
+        <MappingFragment StoreEntitySet="departments_type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="department" ColumnName="department" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="districts">
+      <EntityTypeMapping TypeName="erp_systemModel.district">
+        <MappingFragment StoreEntitySet="districts">
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="district1" ColumnName="district" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="educational_degrees">
+      <EntityTypeMapping TypeName="erp_systemModel.educational_degrees">
+        <MappingFragment StoreEntitySet="educational_degrees">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="educational_degree" ColumnName="educational_degree" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="educational_majors">
+      <EntityTypeMapping TypeName="erp_systemModel.educational_majors">
+        <MappingFragment StoreEntitySet="educational_majors">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="educational_major" ColumnName="educational_major" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employees_business_emails">
+      <EntityTypeMapping TypeName="erp_systemModel.employees_business_emails">
+        <MappingFragment StoreEntitySet="employees_business_emails">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employees_info">
+      <EntityTypeMapping TypeName="erp_systemModel.employees_info">
+        <MappingFragment StoreEntitySet="employees_info">
+          <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="employee_department" ColumnName="employee_department" />
+          <ScalarProperty Name="employee_team" ColumnName="employee_team" />
+          <ScalarProperty Name="employee_position" ColumnName="employee_position" />
+          <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+          <ScalarProperty Name="join_date" ColumnName="join_date" />
+          <ScalarProperty Name="currently_enrolled" ColumnName="currently_enrolled" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employees_passwords">
+      <EntityTypeMapping TypeName="erp_systemModel.employees_passwords">
+        <MappingFragment StoreEntitySet="employees_passwords">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employees_personal_emails">
+      <EntityTypeMapping TypeName="erp_systemModel.employees_personal_emails">
+        <MappingFragment StoreEntitySet="employees_personal_emails">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="generic_work_fields">
+      <EntityTypeMapping TypeName="erp_systemModel.generic_work_fields">
+        <MappingFragment StoreEntitySet="generic_work_fields">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="generic_work_field" ColumnName="generic_work_field" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="positions_type">
+      <EntityTypeMapping TypeName="erp_systemModel.positions_type">
+        <MappingFragment StoreEntitySet="positions_type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="specific_work_fields">
+      <EntityTypeMapping TypeName="erp_systemModel.specific_work_fields">
+        <MappingFragment StoreEntitySet="specific_work_fields">
+          <ScalarProperty Name="generic_work_field" ColumnName="generic_work_field" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="specific_work_field" ColumnName="specific_work_field" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="states_governorates">
+      <EntityTypeMapping TypeName="erp_systemModel.states_governorates">
+        <MappingFragment StoreEntitySet="states_governorates">
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="state_governorate" ColumnName="state_governorate" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teams_type">
+      <EntityTypeMapping TypeName="erp_systemModel.teams_type">
+        <MappingFragment StoreEntitySet="teams_type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="team" ColumnName="team" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

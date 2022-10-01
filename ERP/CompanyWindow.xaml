@@ -1,0 +1,51 @@
+﻿<Window x:Class="ERP.CompanyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ERP"
+        mc:Ignorable="d"
+        Title="Company Info" Height="853.185" Width="1837.345" Background="#FFD8C89C" Icon="output-onlinepngtools.png">
+    <Grid Margin="0,0,0,-21" d:IsLocked="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="134*"/>
+            <RowDefinition Height="351*"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="325" Margin="55,137,0,0" VerticalAlignment="Top" Width="800" Grid.RowSpan="2" d:IsLocked="True"/>
+
+        <DataGrid x:Name="DataGrid1" HorizontalAlignment="Left" Height="732" Margin="898,34,0,0" VerticalAlignment="Top" Width="898" SelectionChanged="DataGrid1_SelectionChanged" Grid.RowSpan="2" d:IsLocked="True">
+
+            <!--<DataGrid.Columns>
+                <DataGridTextColumn Header="contact_id" Binding="{Binding contact_id}"/>
+            </DataGrid.Columns>-->
+
+        </DataGrid>
+        <Label Content="Company Name" HorizontalAlignment="Left" Margin="63,152,0,0" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="0.643,1.549" Height="34" Width="160" d:IsLocked="True"/>
+        <Label Content="Company Telephone" HorizontalAlignment="Left" Margin="63,209,0,0" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="0.643,1.549" Height="34" Width="179" Grid.RowSpan="2" d:IsLocked="True"/>
+        <Label Content="Company address" HorizontalAlignment="Left" Margin="63,34,0,0" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="0.643,1.549" Height="34" Width="182" Grid.Row="1" d:IsLocked="True"/>
+        <ComboBox x:Name="C_Name_Branch" HorizontalAlignment="Left" Margin="253,152,0,0" VerticalAlignment="Top" Width="584" Height="34" Loaded="Load_Name_Branch"  FontSize="16" RenderTransformOrigin="0.544,3.276" SelectionChanged="C_Name_Branch_SelectionChanged" d:IsLocked="True"/>
+        <TextBox x:Name="TxtCname" HorizontalAlignment="Left" Height="34" Margin="253,152,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="584" FontSize="16" d:IsLocked="True"/>
+        <TextBox x:Name="TxtCtel" HorizontalAlignment="Left" Height="34" Margin="253,209,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="584" FontSize="16" Grid.RowSpan="2" PreviewTextInput="NumberValidationTextBox" d:IsLocked="True"/>
+        <TextBox x:Name="TxtCdis" HorizontalAlignment="Left" Height="49" Margin="253,34,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="169" FontSize="16" Grid.Row="1" d:IsLocked="True"/>
+        <TextBox x:Name="TxtCcity" HorizontalAlignment="Left" Height="49" Margin="428,34,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="142" FontSize="16" Grid.Row="1" d:IsLocked="True" />
+        <ComboBox x:Name="Dist" HorizontalAlignment="Left" Margin="253,34,0,0" Grid.Row="1" VerticalAlignment="Top" Width="169" Height="49" Loaded="Load_Dist" SelectionChanged="ComboBox_SelectionChanged_Dist" FontSize="16" RenderTransformOrigin="0.544,3.276" d:IsLocked="True"/>
+        <ComboBox x:Name="City" HorizontalAlignment="Left" Margin="428,34,0,0" Grid.Row="1" VerticalAlignment="Top" Width="142" Height="49" Loaded="Load_City" SelectionChanged="ComboBox_SelectionChanged_City" FontSize="16" d:IsLocked="True"/>
+        <ComboBox x:Name="State" HorizontalAlignment="Left" Margin="575,34,0,0" Grid.Row="1" VerticalAlignment="Top" Width="124" Height="49" Loaded="Load_State" SelectionChanged="ComboBox_SelectionChanged_State" FontSize="16" d:IsLocked="True"/>
+        <ComboBox x:Name="Country" HorizontalAlignment="Left" Margin="704,34,0,0" Grid.Row="1" VerticalAlignment="Top" Width="133" Height="49" Loaded="Load_Country"  FontSize="16" d:IsLocked="True"/>
+        <ComboBox x:Name="Gn_Work" HorizontalAlignment="Left" Margin="253,105,0,0" Grid.Row="1" VerticalAlignment="Top" Width="584" Height="34" Loaded="Load_Gn_Work"  FontSize="16" RenderTransformOrigin="0.544,3.276" SelectionChanged="Gn_Work_SelectionChanged" d:IsLocked="True"/>
+        <ComboBox x:Name="Sp_Work" HorizontalAlignment="Left" Margin="253,163,0,0" Grid.Row="1" VerticalAlignment="Top" Width="584" Height="34"   FontSize="16" RenderTransformOrigin="0.544,3.276" d:IsLocked="True"/>
+        <Label Content="Specific work field" HorizontalAlignment="Left" Margin="62,163,0,0" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="0.643,1.549" Height="34" Width="161" Grid.Row="1" d:IsLocked="True"/>
+        <Label Content="Generic work field" HorizontalAlignment="Left" Margin="62,105,0,0" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="0.643,1.549" Height="34" Width="161" Grid.Row="1" d:IsLocked="True"/>
+        <Label Content="" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="18" RenderTransformOrigin="0.643,1.549" Height="34" Width="65" Margin="63,0,0,290" Grid.Row="1" d:IsLocked="True"/>
+
+
+        <Label Content="Company Info" HorizontalAlignment="Left" Margin="55,92,0,0" VerticalAlignment="Top" Height="45" Width="170" FontSize="22" FontWeight="Bold" d:IsLocked="True"/>
+        <Button x:Name="BtnAdd" Content="Add" HorizontalAlignment="Left" Height="38" Margin="55,495,0,0" VerticalAlignment="Top" Width="116" FontSize="16" Background="#FF50C944" Foreground="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" BorderBrush="#FF0A0909" Click="BtnAdd_Click" Grid.Row="1" d:IsLocked="True"/>
+        <Button x:Name="BtnUpdate" Content="Update" HorizontalAlignment="Left" Height="38" Margin="283,495,0,0" VerticalAlignment="Top" Width="116" FontSize="16" Background="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" BorderBrush="#FF191818" Click="BtnUpdate_Click" Grid.Row="1" d:IsLocked="True"/>
+        <Button x:Name="BtnDelete" Content="Delete"  HorizontalAlignment="Left" Height="38" Margin="511,495,0,0" VerticalAlignment="Top" Width="116" FontSize="16" Foreground="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" Background="#FFE03E3E" BorderBrush="#FF0A0909" Click="BtnDelete_Click" Grid.Row="1" d:IsLocked="True"  />
+        <Button x:Name="BtnClear" Content="Clear" HorizontalAlignment="Left" Height="38" Margin="739,495,0,0" VerticalAlignment="Top" Width="116" FontSize="16" Foreground="Black" BorderBrush="#FF191818" Click="BtnClear_Click" Grid.Row="1" Background="White" d:IsLocked="True"/>
+        <Button x:Name="BtnE_B" Content="Enable Add Branch" HorizontalAlignment="Left" Height="38" Margin="162,295,0,0" VerticalAlignment="Top" Width="152" FontSize="16" Background="#FF2C6A25" Foreground="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" BorderBrush="#FF0A0909" Click="BtnEnableB_Click" Grid.Row="1" d:IsLocked="True"/>
+        <Button x:Name="BtnD_B" Content="Disable Add Branch" HorizontalAlignment="Left" Height="38" Margin="604,295,0,0" VerticalAlignment="Top" Width="152" FontSize="16" Background="#FF99A498" Foreground="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" BorderBrush="#FF0A0909" Click="BtnDisableB_Click" Grid.Row="1" d:IsLocked="True"/>
+
+    </Grid>
+</Window>

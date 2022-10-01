@@ -1,0 +1,1490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="erp_systemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cities">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="state_governorate" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="company_address">
+          <Key>
+            <PropertyRef Name="address_serial" />
+          </Key>
+          <Property Name="address_serial" Type="int" Nullable="false" />
+          <Property Name="company_serial" Type="int" />
+          <Property Name="address" Type="int" />
+          <Property Name="added_by" Type="int" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="company_field_of_work">
+          <Key>
+            <PropertyRef Name="company_serial" />
+          </Key>
+          <Property Name="company_serial" Type="int" Nullable="false" />
+          <Property Name="work_field" Type="int" />
+          <Property Name="added_by" Type="int" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="company_name">
+          <Key>
+            <PropertyRef Name="company_serial" />
+          </Key>
+          <Property Name="company_serial" Type="int" Nullable="false" />
+          <Property Name="company_name" Type="varchar" MaxLength="50" />
+          <Property Name="added_by" Type="int" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="company_telephone">
+          <Key>
+            <PropertyRef Name="branch_serial" />
+            <PropertyRef Name="telephone_number" />
+          </Key>
+          <Property Name="branch_serial" Type="int" Nullable="false" />
+          <Property Name="telephone_number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="added_by" Type="int" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="contact_person_info">
+          <Key>
+            <PropertyRef Name="sales_person_id" />
+            <PropertyRef Name="branch_serial" />
+            <PropertyRef Name="contact_id" />
+          </Key>
+          <Property Name="sales_person_id" Type="int" Nullable="false" />
+          <Property Name="branch_serial" Type="int" Nullable="false" />
+          <Property Name="contact_id" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="gender" Type="varchar" MaxLength="10" />
+          <Property Name="department" Type="int" />
+          <Property Name="is_valid" Type="bit" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="contact_person_mobile">
+          <Key>
+            <PropertyRef Name="sales_person_id" />
+            <PropertyRef Name="branch_serial" />
+            <PropertyRef Name="contact_id" />
+            <PropertyRef Name="telephone_id" />
+          </Key>
+          <Property Name="sales_person_id" Type="int" Nullable="false" />
+          <Property Name="branch_serial" Type="int" Nullable="false" />
+          <Property Name="contact_id" Type="int" Nullable="false" />
+          <Property Name="telephone_id" Type="int" Nullable="false" />
+          <Property Name="mobile" Type="varchar" MaxLength="50" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="countries">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="country" Type="varchar" MaxLength="50" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="departments_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="department" Type="varchar" MaxLength="50" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="districts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="city" Type="int" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="district" Type="varchar" MaxLength="50" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="educational_degrees">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="educational_degree" Type="varchar" MaxLength="50" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="educational_majors">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="educational_major" Type="varchar" MaxLength="50" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="employees_business_emails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="employees_info">
+          <Key>
+            <PropertyRef Name="employee_id" />
+          </Key>
+          <Property Name="employee_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="gender" Type="varchar" MaxLength="10" />
+          <Property Name="employee_department" Type="int" />
+          <Property Name="employee_team" Type="int" />
+          <Property Name="employee_position" Type="int" />
+          <Property Name="birth_date" Type="date" />
+          <Property Name="join_date" Type="date" />
+          <Property Name="currently_enrolled" Type="bit" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="employees_passwords">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="200" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="employees_personal_emails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="generic_work_fields">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="generic_work_field" Type="varchar" MaxLength="50" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="positions_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="position" Type="varchar" MaxLength="50" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="specific_work_fields">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="generic_work_field" Type="int" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="specific_work_field" Type="varchar" MaxLength="50" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="states_governorates">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="country" Type="int" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="state_governorate" Type="varchar" MaxLength="50" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <EntityType Name="teams_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="team" Type="varchar" MaxLength="50" />
+          <Property Name="date_added" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__company_f__compa__19DFD96B">
+          <End Role="company_name" Type="Self.company_name" Multiplicity="1" />
+          <End Role="company_field_of_work" Type="Self.company_field_of_work" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="company_name">
+              <PropertyRef Name="company_serial" />
+            </Principal>
+            <Dependent Role="company_field_of_work">
+              <PropertyRef Name="company_serial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__contact_p__sales__1AD3FDA4">
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="1" />
+          <End Role="contact_person_info" Type="Self.contact_person_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees_info">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="contact_person_info">
+              <PropertyRef Name="sales_person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employees__emplo__18EBB532">
+          <End Role="teams_type" Type="Self.teams_type" Multiplicity="0..1" />
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teams_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employees_info">
+              <PropertyRef Name="employee_team" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employees_pa__id__797309D9">
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="1" />
+          <End Role="employees_passwords" Type="Self.employees_passwords" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="employees_info">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="employees_passwords">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employees_pe__id__75A278F5">
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="1" />
+          <End Role="employees_personal_emails" Type="Self.employees_personal_emails" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="employees_info">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="employees_personal_emails">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cities_states_governorates">
+          <End Role="states_governorates" Type="Self.states_governorates" Multiplicity="1" />
+          <End Role="cities" Type="Self.cities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="states_governorates">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cities">
+              <PropertyRef Name="state_governorate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_company_address_company_name">
+          <End Role="company_name" Type="Self.company_name" Multiplicity="0..1" />
+          <End Role="company_address" Type="Self.company_address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company_name">
+              <PropertyRef Name="company_serial" />
+            </Principal>
+            <Dependent Role="company_address">
+              <PropertyRef Name="company_serial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_company_address_districts">
+          <End Role="districts" Type="Self.districts" Multiplicity="0..1" />
+          <End Role="company_address" Type="Self.company_address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="districts">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="company_address">
+              <PropertyRef Name="address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_company_address_employees_info">
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="0..1" />
+          <End Role="company_address" Type="Self.company_address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees_info">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="company_address">
+              <PropertyRef Name="added_by" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_company_field_of_work_employees_info">
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="0..1" />
+          <End Role="company_field_of_work" Type="Self.company_field_of_work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees_info">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="company_field_of_work">
+              <PropertyRef Name="added_by" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_company_field_of_work_specific_work_fields">
+          <End Role="specific_work_fields" Type="Self.specific_work_fields" Multiplicity="0..1" />
+          <End Role="company_field_of_work" Type="Self.company_field_of_work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="specific_work_fields">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="company_field_of_work">
+              <PropertyRef Name="work_field" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_company_name_employees_info">
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="0..1" />
+          <End Role="company_name" Type="Self.company_name" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees_info">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="company_name">
+              <PropertyRef Name="added_by" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_company_telephone_company_address">
+          <End Role="company_address" Type="Self.company_address" Multiplicity="1" />
+          <End Role="company_telephone" Type="Self.company_telephone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company_address">
+              <PropertyRef Name="address_serial" />
+            </Principal>
+            <Dependent Role="company_telephone">
+              <PropertyRef Name="branch_serial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_company_telephone_employees_info">
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="0..1" />
+          <End Role="company_telephone" Type="Self.company_telephone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees_info">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="company_telephone">
+              <PropertyRef Name="added_by" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contact_person_info_company_address">
+          <End Role="company_address" Type="Self.company_address" Multiplicity="1" />
+          <End Role="contact_person_info" Type="Self.contact_person_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company_address">
+              <PropertyRef Name="address_serial" />
+            </Principal>
+            <Dependent Role="contact_person_info">
+              <PropertyRef Name="branch_serial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contact_person_info_departments_type">
+          <End Role="departments_type" Type="Self.departments_type" Multiplicity="0..1" />
+          <End Role="contact_person_info" Type="Self.contact_person_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departments_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contact_person_info">
+              <PropertyRef Name="department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contact_person_mobile_contact_person_info">
+          <End Role="contact_person_info" Type="Self.contact_person_info" Multiplicity="1" />
+          <End Role="contact_person_mobile" Type="Self.contact_person_mobile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contact_person_info">
+              <PropertyRef Name="sales_person_id" />
+              <PropertyRef Name="branch_serial" />
+              <PropertyRef Name="contact_id" />
+            </Principal>
+            <Dependent Role="contact_person_mobile">
+              <PropertyRef Name="sales_person_id" />
+              <PropertyRef Name="branch_serial" />
+              <PropertyRef Name="contact_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_districts_cities">
+          <End Role="cities" Type="Self.cities" Multiplicity="0..1" />
+          <End Role="districts" Type="Self.districts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cities">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="districts">
+              <PropertyRef Name="city" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_employees_business_emails_employees_info">
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="1" />
+          <End Role="employees_business_emails" Type="Self.employees_business_emails" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="employees_info">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="employees_business_emails">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_employees_info_departments_type">
+          <End Role="departments_type" Type="Self.departments_type" Multiplicity="0..1" />
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departments_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employees_info">
+              <PropertyRef Name="employee_department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_employees_info_positions_type">
+          <End Role="positions_type" Type="Self.positions_type" Multiplicity="0..1" />
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="positions_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employees_info">
+              <PropertyRef Name="employee_position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_specific_work_fields_generic_work_fields">
+          <End Role="generic_work_fields" Type="Self.generic_work_fields" Multiplicity="0..1" />
+          <End Role="specific_work_fields" Type="Self.specific_work_fields" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="generic_work_fields">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="specific_work_fields">
+              <PropertyRef Name="generic_work_field" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_states_governorates_countries">
+          <End Role="countries" Type="Self.countries" Multiplicity="0..1" />
+          <End Role="states_governorates" Type="Self.states_governorates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countries">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="states_governorates">
+              <PropertyRef Name="country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="erp_systemModelStoreContainer">
+          <EntitySet Name="cities" EntityType="Self.cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="company_address" EntityType="Self.company_address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="company_field_of_work" EntityType="Self.company_field_of_work" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="company_name" EntityType="Self.company_name" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="company_telephone" EntityType="Self.company_telephone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contact_person_info" EntityType="Self.contact_person_info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contact_person_mobile" EntityType="Self.contact_person_mobile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="countries" EntityType="Self.countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="departments_type" EntityType="Self.departments_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="districts" EntityType="Self.districts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="educational_degrees" EntityType="Self.educational_degrees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="educational_majors" EntityType="Self.educational_majors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employees_business_emails" EntityType="Self.employees_business_emails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employees_info" EntityType="Self.employees_info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employees_passwords" EntityType="Self.employees_passwords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employees_personal_emails" EntityType="Self.employees_personal_emails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="generic_work_fields" EntityType="Self.generic_work_fields" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="positions_type" EntityType="Self.positions_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="specific_work_fields" EntityType="Self.specific_work_fields" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="states_governorates" EntityType="Self.states_governorates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="teams_type" EntityType="Self.teams_type" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__company_f__compa__19DFD96B" Association="Self.FK__company_f__compa__19DFD96B">
+            <End Role="company_name" EntitySet="company_name" />
+            <End Role="company_field_of_work" EntitySet="company_field_of_work" />
+          </AssociationSet>
+          <AssociationSet Name="FK__contact_p__sales__1AD3FDA4" Association="Self.FK__contact_p__sales__1AD3FDA4">
+            <End Role="employees_info" EntitySet="employees_info" />
+            <End Role="contact_person_info" EntitySet="contact_person_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employees__emplo__18EBB532" Association="Self.FK__employees__emplo__18EBB532">
+            <End Role="teams_type" EntitySet="teams_type" />
+            <End Role="employees_info" EntitySet="employees_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employees_pa__id__797309D9" Association="Self.FK__employees_pa__id__797309D9">
+            <End Role="employees_info" EntitySet="employees_info" />
+            <End Role="employees_passwords" EntitySet="employees_passwords" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employees_pe__id__75A278F5" Association="Self.FK__employees_pe__id__75A278F5">
+            <End Role="employees_info" EntitySet="employees_info" />
+            <End Role="employees_personal_emails" EntitySet="employees_personal_emails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cities_states_governorates" Association="Self.FK_cities_states_governorates">
+            <End Role="states_governorates" EntitySet="states_governorates" />
+            <End Role="cities" EntitySet="cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_company_address_company_name" Association="Self.FK_company_address_company_name">
+            <End Role="company_name" EntitySet="company_name" />
+            <End Role="company_address" EntitySet="company_address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_company_address_districts" Association="Self.FK_company_address_districts">
+            <End Role="districts" EntitySet="districts" />
+            <End Role="company_address" EntitySet="company_address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_company_address_employees_info" Association="Self.FK_company_address_employees_info">
+            <End Role="employees_info" EntitySet="employees_info" />
+            <End Role="company_address" EntitySet="company_address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_company_field_of_work_employees_info" Association="Self.FK_company_field_of_work_employees_info">
+            <End Role="employees_info" EntitySet="employees_info" />
+            <End Role="company_field_of_work" EntitySet="company_field_of_work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_company_field_of_work_specific_work_fields" Association="Self.FK_company_field_of_work_specific_work_fields">
+            <End Role="specific_work_fields" EntitySet="specific_work_fields" />
+            <End Role="company_field_of_work" EntitySet="company_field_of_work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_company_name_employees_info" Association="Self.FK_company_name_employees_info">
+            <End Role="employees_info" EntitySet="employees_info" />
+            <End Role="company_name" EntitySet="company_name" />
+          </AssociationSet>
+          <AssociationSet Name="FK_company_telephone_company_address" Association="Self.FK_company_telephone_company_address">
+            <End Role="company_address" EntitySet="company_address" />
+            <End Role="company_telephone" EntitySet="company_telephone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_company_telephone_employees_info" Association="Self.FK_company_telephone_employees_info">
+            <End Role="employees_info" EntitySet="employees_info" />
+            <End Role="company_telephone" EntitySet="company_telephone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contact_person_info_company_address" Association="Self.FK_contact_person_info_company_address">
+            <End Role="company_address" EntitySet="company_address" />
+            <End Role="contact_person_info" EntitySet="contact_person_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contact_person_info_departments_type" Association="Self.FK_contact_person_info_departments_type">
+            <End Role="departments_type" EntitySet="departments_type" />
+            <End Role="contact_person_info" EntitySet="contact_person_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contact_person_mobile_contact_person_info" Association="Self.FK_contact_person_mobile_contact_person_info">
+            <End Role="contact_person_info" EntitySet="contact_person_info" />
+            <End Role="contact_person_mobile" EntitySet="contact_person_mobile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_districts_cities" Association="Self.FK_districts_cities">
+            <End Role="cities" EntitySet="cities" />
+            <End Role="districts" EntitySet="districts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_employees_business_emails_employees_info" Association="Self.FK_employees_business_emails_employees_info">
+            <End Role="employees_info" EntitySet="employees_info" />
+            <End Role="employees_business_emails" EntitySet="employees_business_emails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_employees_info_departments_type" Association="Self.FK_employees_info_departments_type">
+            <End Role="departments_type" EntitySet="departments_type" />
+            <End Role="employees_info" EntitySet="employees_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_employees_info_positions_type" Association="Self.FK_employees_info_positions_type">
+            <End Role="positions_type" EntitySet="positions_type" />
+            <End Role="employees_info" EntitySet="employees_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_specific_work_fields_generic_work_fields" Association="Self.FK_specific_work_fields_generic_work_fields">
+            <End Role="generic_work_fields" EntitySet="generic_work_fields" />
+            <End Role="specific_work_fields" EntitySet="specific_work_fields" />
+          </AssociationSet>
+          <AssociationSet Name="FK_states_governorates_countries" Association="Self.FK_states_governorates_countries">
+            <End Role="countries" EntitySet="countries" />
+            <End Role="states_governorates" EntitySet="states_governorates" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="erp_systemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="state_governorate" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="city1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="states_governorates" Relationship="Self.FK_cities_states_governorates" FromRole="cities" ToRole="states_governorates" />
+          <NavigationProperty Name="districts" Relationship="Self.FK_districts_cities" FromRole="cities" ToRole="districts" />
+        </EntityType>
+        <EntityType Name="company_address">
+          <Key>
+            <PropertyRef Name="address_serial" />
+          </Key>
+          <Property Name="address_serial" Type="Int32" Nullable="false" />
+          <Property Name="company_serial" Type="Int32" />
+          <Property Name="address" Type="Int32" />
+          <Property Name="added_by" Type="Int32" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="company_name" Relationship="Self.FK_company_address_company_name" FromRole="company_address" ToRole="company_name" />
+          <NavigationProperty Name="district" Relationship="Self.FK_company_address_districts" FromRole="company_address" ToRole="districts" />
+          <NavigationProperty Name="employees_info" Relationship="Self.FK_company_address_employees_info" FromRole="company_address" ToRole="employees_info" />
+          <NavigationProperty Name="company_telephone" Relationship="Self.FK_company_telephone_company_address" FromRole="company_address" ToRole="company_telephone" />
+          <NavigationProperty Name="contact_person_info" Relationship="Self.FK_contact_person_info_company_address" FromRole="company_address" ToRole="contact_person_info" />
+        </EntityType>
+        <EntityType Name="company_field_of_work">
+          <Key>
+            <PropertyRef Name="company_serial" />
+          </Key>
+          <Property Name="company_serial" Type="Int32" Nullable="false" />
+          <Property Name="work_field" Type="Int32" />
+          <Property Name="added_by" Type="Int32" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="company_name" Relationship="Self.FK__company_f__compa__19DFD96B" FromRole="company_field_of_work" ToRole="company_name" />
+          <NavigationProperty Name="employees_info" Relationship="Self.FK_company_field_of_work_employees_info" FromRole="company_field_of_work" ToRole="employees_info" />
+          <NavigationProperty Name="specific_work_fields" Relationship="Self.FK_company_field_of_work_specific_work_fields" FromRole="company_field_of_work" ToRole="specific_work_fields" />
+        </EntityType>
+        <EntityType Name="company_name">
+          <Key>
+            <PropertyRef Name="company_serial" />
+          </Key>
+          <Property Name="company_serial" Type="Int32" Nullable="false" />
+          <Property Name="company_name1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="added_by" Type="Int32" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="company_address" Relationship="Self.FK_company_address_company_name" FromRole="company_name" ToRole="company_address" />
+          <NavigationProperty Name="company_field_of_work" Relationship="Self.FK__company_f__compa__19DFD96B" FromRole="company_name" ToRole="company_field_of_work" />
+          <NavigationProperty Name="employees_info" Relationship="Self.FK_company_name_employees_info" FromRole="company_name" ToRole="employees_info" />
+        </EntityType>
+        <EntityType Name="company_telephone">
+          <Key>
+            <PropertyRef Name="branch_serial" />
+            <PropertyRef Name="telephone_number" />
+          </Key>
+          <Property Name="branch_serial" Type="Int32" Nullable="false" />
+          <Property Name="telephone_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="added_by" Type="Int32" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="company_address" Relationship="Self.FK_company_telephone_company_address" FromRole="company_telephone" ToRole="company_address" />
+          <NavigationProperty Name="employees_info" Relationship="Self.FK_company_telephone_employees_info" FromRole="company_telephone" ToRole="employees_info" />
+        </EntityType>
+        <EntityType Name="contact_person_info">
+          <Key>
+            <PropertyRef Name="sales_person_id" />
+            <PropertyRef Name="branch_serial" />
+            <PropertyRef Name="contact_id" />
+          </Key>
+          <Property Name="sales_person_id" Type="Int32" Nullable="false" />
+          <Property Name="branch_serial" Type="Int32" Nullable="false" />
+          <Property Name="contact_id" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="department" Type="Int32" />
+          <Property Name="is_valid" Type="Boolean" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="company_address" Relationship="Self.FK_contact_person_info_company_address" FromRole="contact_person_info" ToRole="company_address" />
+          <NavigationProperty Name="employees_info" Relationship="Self.FK__contact_p__sales__1AD3FDA4" FromRole="contact_person_info" ToRole="employees_info" />
+          <NavigationProperty Name="departments_type" Relationship="Self.FK_contact_person_info_departments_type" FromRole="contact_person_info" ToRole="departments_type" />
+          <NavigationProperty Name="contact_person_mobile" Relationship="Self.FK_contact_person_mobile_contact_person_info" FromRole="contact_person_info" ToRole="contact_person_mobile" />
+        </EntityType>
+        <EntityType Name="contact_person_mobile">
+          <Key>
+            <PropertyRef Name="sales_person_id" />
+            <PropertyRef Name="branch_serial" />
+            <PropertyRef Name="contact_id" />
+            <PropertyRef Name="telephone_id" />
+          </Key>
+          <Property Name="sales_person_id" Type="Int32" Nullable="false" />
+          <Property Name="branch_serial" Type="Int32" Nullable="false" />
+          <Property Name="contact_id" Type="Int32" Nullable="false" />
+          <Property Name="telephone_id" Type="Int32" Nullable="false" />
+          <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="contact_person_info" Relationship="Self.FK_contact_person_mobile_contact_person_info" FromRole="contact_person_mobile" ToRole="contact_person_info" />
+        </EntityType>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="country1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="states_governorates" Relationship="Self.FK_states_governorates_countries" FromRole="countries" ToRole="states_governorates" />
+        </EntityType>
+        <EntityType Name="departments_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="contact_person_info" Relationship="Self.FK_contact_person_info_departments_type" FromRole="departments_type" ToRole="contact_person_info" />
+          <NavigationProperty Name="employees_info" Relationship="Self.FK_employees_info_departments_type" FromRole="departments_type" ToRole="employees_info" />
+        </EntityType>
+        <EntityType Name="district">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="city" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="district1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="city1" Relationship="Self.FK_districts_cities" FromRole="districts" ToRole="cities" />
+          <NavigationProperty Name="company_address" Relationship="Self.FK_company_address_districts" FromRole="districts" ToRole="company_address" />
+        </EntityType>
+        <EntityType Name="educational_degrees">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="educational_degree" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="educational_majors">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="educational_major" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="employees_business_emails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="employees_info" Relationship="Self.FK_employees_business_emails_employees_info" FromRole="employees_business_emails" ToRole="employees_info" />
+        </EntityType>
+        <EntityType Name="employees_info">
+          <Key>
+            <PropertyRef Name="employee_id" />
+          </Key>
+          <Property Name="employee_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="employee_department" Type="Int32" />
+          <Property Name="employee_team" Type="Int32" />
+          <Property Name="employee_position" Type="Int32" />
+          <Property Name="birth_date" Type="DateTime" Precision="0" />
+          <Property Name="join_date" Type="DateTime" Precision="0" />
+          <Property Name="currently_enrolled" Type="Boolean" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="company_address" Relationship="Self.FK_company_address_employees_info" FromRole="employees_info" ToRole="company_address" />
+          <NavigationProperty Name="company_field_of_work" Relationship="Self.FK_company_field_of_work_employees_info" FromRole="employees_info" ToRole="company_field_of_work" />
+          <NavigationProperty Name="company_name" Relationship="Self.FK_company_name_employees_info" FromRole="employees_info" ToRole="company_name" />
+          <NavigationProperty Name="company_telephone" Relationship="Self.FK_company_telephone_employees_info" FromRole="employees_info" ToRole="company_telephone" />
+          <NavigationProperty Name="contact_person_info" Relationship="Self.FK__contact_p__sales__1AD3FDA4" FromRole="employees_info" ToRole="contact_person_info" />
+          <NavigationProperty Name="departments_type" Relationship="Self.FK_employees_info_departments_type" FromRole="employees_info" ToRole="departments_type" />
+          <NavigationProperty Name="employees_business_emails" Relationship="Self.FK_employees_business_emails_employees_info" FromRole="employees_info" ToRole="employees_business_emails" />
+          <NavigationProperty Name="teams_type" Relationship="Self.FK__employees__emplo__18EBB532" FromRole="employees_info" ToRole="teams_type" />
+          <NavigationProperty Name="employees_passwords" Relationship="Self.FK__employees_pa__id__797309D9" FromRole="employees_info" ToRole="employees_passwords" />
+          <NavigationProperty Name="employees_personal_emails" Relationship="Self.FK__employees_pe__id__75A278F5" FromRole="employees_info" ToRole="employees_personal_emails" />
+          <NavigationProperty Name="positions_type" Relationship="Self.FK_employees_info_positions_type" FromRole="employees_info" ToRole="positions_type" />
+        </EntityType>
+        <EntityType Name="employees_passwords">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="employees_info" Relationship="Self.FK__employees_pa__id__797309D9" FromRole="employees_passwords" ToRole="employees_info" />
+        </EntityType>
+        <EntityType Name="employees_personal_emails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="employees_info" Relationship="Self.FK__employees_pe__id__75A278F5" FromRole="employees_personal_emails" ToRole="employees_info" />
+        </EntityType>
+        <EntityType Name="generic_work_fields">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="generic_work_field" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="specific_work_fields" Relationship="Self.FK_specific_work_fields_generic_work_fields" FromRole="generic_work_fields" ToRole="specific_work_fields" />
+        </EntityType>
+        <EntityType Name="positions_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="employees_info" Relationship="Self.FK_employees_info_positions_type" FromRole="positions_type" ToRole="employees_info" />
+        </EntityType>
+        <EntityType Name="specific_work_fields">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="generic_work_field" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="specific_work_field" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="company_field_of_work" Relationship="Self.FK_company_field_of_work_specific_work_fields" FromRole="specific_work_fields" ToRole="company_field_of_work" />
+          <NavigationProperty Name="generic_work_fields" Relationship="Self.FK_specific_work_fields_generic_work_fields" FromRole="specific_work_fields" ToRole="generic_work_fields" />
+        </EntityType>
+        <EntityType Name="states_governorates">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="country" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="state_governorate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="cities" Relationship="Self.FK_cities_states_governorates" FromRole="states_governorates" ToRole="cities" />
+          <NavigationProperty Name="country1" Relationship="Self.FK_states_governorates_countries" FromRole="states_governorates" ToRole="countries" />
+        </EntityType>
+        <EntityType Name="teams_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="team" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="employees_info" Relationship="Self.FK__employees__emplo__18EBB532" FromRole="teams_type" ToRole="employees_info" />
+        </EntityType>
+        <Association Name="FK_cities_states_governorates">
+          <End Role="states_governorates" Type="Self.states_governorates" Multiplicity="1" />
+          <End Role="cities" Type="Self.city" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="states_governorates">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cities">
+              <PropertyRef Name="state_governorate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_districts_cities">
+          <End Role="cities" Type="Self.city" Multiplicity="0..1" />
+          <End Role="districts" Type="Self.district" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cities">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="districts">
+              <PropertyRef Name="city" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_company_address_company_name">
+          <End Role="company_name" Type="Self.company_name" Multiplicity="0..1" />
+          <End Role="company_address" Type="Self.company_address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company_name">
+              <PropertyRef Name="company_serial" />
+            </Principal>
+            <Dependent Role="company_address">
+              <PropertyRef Name="company_serial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_company_address_districts">
+          <End Role="districts" Type="Self.district" Multiplicity="0..1" />
+          <End Role="company_address" Type="Self.company_address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="districts">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="company_address">
+              <PropertyRef Name="address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_company_address_employees_info">
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="0..1" />
+          <End Role="company_address" Type="Self.company_address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees_info">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="company_address">
+              <PropertyRef Name="added_by" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_company_telephone_company_address">
+          <End Role="company_address" Type="Self.company_address" Multiplicity="1" />
+          <End Role="company_telephone" Type="Self.company_telephone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company_address">
+              <PropertyRef Name="address_serial" />
+            </Principal>
+            <Dependent Role="company_telephone">
+              <PropertyRef Name="branch_serial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contact_person_info_company_address">
+          <End Role="company_address" Type="Self.company_address" Multiplicity="1" />
+          <End Role="contact_person_info" Type="Self.contact_person_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company_address">
+              <PropertyRef Name="address_serial" />
+            </Principal>
+            <Dependent Role="contact_person_info">
+              <PropertyRef Name="branch_serial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__company_f__compa__19DFD96B">
+          <End Role="company_name" Type="Self.company_name" Multiplicity="1" />
+          <End Role="company_field_of_work" Type="Self.company_field_of_work" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="company_name">
+              <PropertyRef Name="company_serial" />
+            </Principal>
+            <Dependent Role="company_field_of_work">
+              <PropertyRef Name="company_serial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_company_field_of_work_employees_info">
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="0..1" />
+          <End Role="company_field_of_work" Type="Self.company_field_of_work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees_info">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="company_field_of_work">
+              <PropertyRef Name="added_by" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_company_field_of_work_specific_work_fields">
+          <End Role="specific_work_fields" Type="Self.specific_work_fields" Multiplicity="0..1" />
+          <End Role="company_field_of_work" Type="Self.company_field_of_work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="specific_work_fields">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="company_field_of_work">
+              <PropertyRef Name="work_field" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_company_name_employees_info">
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="0..1" />
+          <End Role="company_name" Type="Self.company_name" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees_info">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="company_name">
+              <PropertyRef Name="added_by" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_company_telephone_employees_info">
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="0..1" />
+          <End Role="company_telephone" Type="Self.company_telephone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees_info">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="company_telephone">
+              <PropertyRef Name="added_by" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__contact_p__sales__1AD3FDA4">
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="1" />
+          <End Role="contact_person_info" Type="Self.contact_person_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees_info">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="contact_person_info">
+              <PropertyRef Name="sales_person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contact_person_info_departments_type">
+          <End Role="departments_type" Type="Self.departments_type" Multiplicity="0..1" />
+          <End Role="contact_person_info" Type="Self.contact_person_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departments_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contact_person_info">
+              <PropertyRef Name="department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contact_person_mobile_contact_person_info">
+          <End Role="contact_person_info" Type="Self.contact_person_info" Multiplicity="1" />
+          <End Role="contact_person_mobile" Type="Self.contact_person_mobile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contact_person_info">
+              <PropertyRef Name="sales_person_id" />
+              <PropertyRef Name="branch_serial" />
+              <PropertyRef Name="contact_id" />
+            </Principal>
+            <Dependent Role="contact_person_mobile">
+              <PropertyRef Name="sales_person_id" />
+              <PropertyRef Name="branch_serial" />
+              <PropertyRef Name="contact_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_states_governorates_countries">
+          <End Role="countries" Type="Self.country" Multiplicity="0..1" />
+          <End Role="states_governorates" Type="Self.states_governorates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="countries">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="states_governorates">
+              <PropertyRef Name="country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_employees_info_departments_type">
+          <End Role="departments_type" Type="Self.departments_type" Multiplicity="0..1" />
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departments_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employees_info">
+              <PropertyRef Name="employee_department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_employees_business_emails_employees_info">
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="1" />
+          <End Role="employees_business_emails" Type="Self.employees_business_emails" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="employees_info">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="employees_business_emails">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employees__emplo__18EBB532">
+          <End Role="teams_type" Type="Self.teams_type" Multiplicity="0..1" />
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teams_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employees_info">
+              <PropertyRef Name="employee_team" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employees_pa__id__797309D9">
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="1" />
+          <End Role="employees_passwords" Type="Self.employees_passwords" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="employees_info">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="employees_passwords">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employees_pe__id__75A278F5">
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="1" />
+          <End Role="employees_personal_emails" Type="Self.employees_personal_emails" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="employees_info">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="employees_personal_emails">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_employees_info_positions_type">
+          <End Role="positions_type" Type="Self.positions_type" Multiplicity="0..1" />
+          <End Role="employees_info" Type="Self.employees_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="positions_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employees_info">
+              <PropertyRef Name="employee_position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_specific_work_fields_generic_work_fields">
+          <End Role="generic_work_fields" Type="Self.generic_work_fields" Multiplicity="0..1" />
+          <End Role="specific_work_fields" Type="Self.specific_work_fields" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="generic_work_fields">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="specific_work_fields">
+              <PropertyRef Name="generic_work_field" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="erp_systemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cities" EntityType="Self.city" />
+          <EntitySet Name="company_address" EntityType="Self.company_address" />
+          <EntitySet Name="company_field_of_work" EntityType="Self.company_field_of_work" />
+          <EntitySet Name="company_name" EntityType="Self.company_name" />
+          <EntitySet Name="company_telephone" EntityType="Self.company_telephone" />
+          <EntitySet Name="contact_person_info" EntityType="Self.contact_person_info" />
+          <EntitySet Name="contact_person_mobile" EntityType="Self.contact_person_mobile" />
+          <EntitySet Name="countries" EntityType="Self.country" />
+          <EntitySet Name="departments_type" EntityType="Self.departments_type" />
+          <EntitySet Name="districts" EntityType="Self.district" />
+          <EntitySet Name="educational_degrees" EntityType="Self.educational_degrees" />
+          <EntitySet Name="educational_majors" EntityType="Self.educational_majors" />
+          <EntitySet Name="employees_business_emails" EntityType="Self.employees_business_emails" />
+          <EntitySet Name="employees_info" EntityType="Self.employees_info" />
+          <EntitySet Name="employees_passwords" EntityType="Self.employees_passwords" />
+          <EntitySet Name="employees_personal_emails" EntityType="Self.employees_personal_emails" />
+          <EntitySet Name="generic_work_fields" EntityType="Self.generic_work_fields" />
+          <EntitySet Name="positions_type" EntityType="Self.positions_type" />
+          <EntitySet Name="specific_work_fields" EntityType="Self.specific_work_fields" />
+          <EntitySet Name="states_governorates" EntityType="Self.states_governorates" />
+          <EntitySet Name="teams_type" EntityType="Self.teams_type" />
+          <AssociationSet Name="FK_cities_states_governorates" Association="Self.FK_cities_states_governorates">
+            <End Role="states_governorates" EntitySet="states_governorates" />
+            <End Role="cities" EntitySet="cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_districts_cities" Association="Self.FK_districts_cities">
+            <End Role="cities" EntitySet="cities" />
+            <End Role="districts" EntitySet="districts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_company_address_company_name" Association="Self.FK_company_address_company_name">
+            <End Role="company_name" EntitySet="company_name" />
+            <End Role="company_address" EntitySet="company_address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_company_address_districts" Association="Self.FK_company_address_districts">
+            <End Role="districts" EntitySet="districts" />
+            <End Role="company_address" EntitySet="company_address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_company_address_employees_info" Association="Self.FK_company_address_employees_info">
+            <End Role="employees_info" EntitySet="employees_info" />
+            <End Role="company_address" EntitySet="company_address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_company_telephone_company_address" Association="Self.FK_company_telephone_company_address">
+            <End Role="company_address" EntitySet="company_address" />
+            <End Role="company_telephone" EntitySet="company_telephone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contact_person_info_company_address" Association="Self.FK_contact_person_info_company_address">
+            <End Role="company_address" EntitySet="company_address" />
+            <End Role="contact_person_info" EntitySet="contact_person_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK__company_f__compa__19DFD96B" Association="Self.FK__company_f__compa__19DFD96B">
+            <End Role="company_name" EntitySet="company_name" />
+            <End Role="company_field_of_work" EntitySet="company_field_of_work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_company_field_of_work_employees_info" Association="Self.FK_company_field_of_work_employees_info">
+            <End Role="employees_info" EntitySet="employees_info" />
+            <End Role="company_field_of_work" EntitySet="company_field_of_work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_company_field_of_work_specific_work_fields" Association="Self.FK_company_field_of_work_specific_work_fields">
+            <End Role="specific_work_fields" EntitySet="specific_work_fields" />
+            <End Role="company_field_of_work" EntitySet="company_field_of_work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_company_name_employees_info" Association="Self.FK_company_name_employees_info">
+            <End Role="employees_info" EntitySet="employees_info" />
+            <End Role="company_name" EntitySet="company_name" />
+          </AssociationSet>
+          <AssociationSet Name="FK_company_telephone_employees_info" Association="Self.FK_company_telephone_employees_info">
+            <End Role="employees_info" EntitySet="employees_info" />
+            <End Role="company_telephone" EntitySet="company_telephone" />
+          </AssociationSet>
+          <AssociationSet Name="FK__contact_p__sales__1AD3FDA4" Association="Self.FK__contact_p__sales__1AD3FDA4">
+            <End Role="employees_info" EntitySet="employees_info" />
+            <End Role="contact_person_info" EntitySet="contact_person_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contact_person_info_departments_type" Association="Self.FK_contact_person_info_departments_type">
+            <End Role="departments_type" EntitySet="departments_type" />
+            <End Role="contact_person_info" EntitySet="contact_person_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contact_person_mobile_contact_person_info" Association="Self.FK_contact_person_mobile_contact_person_info">
+            <End Role="contact_person_info" EntitySet="contact_person_info" />
+            <End Role="contact_person_mobile" EntitySet="contact_person_mobile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_states_governorates_countries" Association="Self.FK_states_governorates_countries">
+            <End Role="countries" EntitySet="countries" />
+            <End Role="states_governorates" EntitySet="states_governorates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_employees_info_departments_type" Association="Self.FK_employees_info_departments_type">
+            <End Role="departments_type" EntitySet="departments_type" />
+            <End Role="employees_info" EntitySet="employees_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_employees_business_emails_employees_info" Association="Self.FK_employees_business_emails_employees_info">
+            <End Role="employees_info" EntitySet="employees_info" />
+            <End Role="employees_business_emails" EntitySet="employees_business_emails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employees__emplo__18EBB532" Association="Self.FK__employees__emplo__18EBB532">
+            <End Role="teams_type" EntitySet="teams_type" />
+            <End Role="employees_info" EntitySet="employees_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employees_pa__id__797309D9" Association="Self.FK__employees_pa__id__797309D9">
+            <End Role="employees_info" EntitySet="employees_info" />
+            <End Role="employees_passwords" EntitySet="employees_passwords" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employees_pe__id__75A278F5" Association="Self.FK__employees_pe__id__75A278F5">
+            <End Role="employees_info" EntitySet="employees_info" />
+            <End Role="employees_personal_emails" EntitySet="employees_personal_emails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_employees_info_positions_type" Association="Self.FK_employees_info_positions_type">
+            <End Role="positions_type" EntitySet="positions_type" />
+            <End Role="employees_info" EntitySet="employees_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_specific_work_fields_generic_work_fields" Association="Self.FK_specific_work_fields_generic_work_fields">
+            <End Role="generic_work_fields" EntitySet="generic_work_fields" />
+            <End Role="specific_work_fields" EntitySet="specific_work_fields" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="erp_systemModelStoreContainer" CdmEntityContainer="erp_systemEntities">
+          <EntitySetMapping Name="cities">
+            <EntityTypeMapping TypeName="erp_systemModel.city">
+              <MappingFragment StoreEntitySet="cities">
+                <ScalarProperty Name="state_governorate" ColumnName="state_governorate" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="city1" ColumnName="city" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="company_address">
+            <EntityTypeMapping TypeName="erp_systemModel.company_address">
+              <MappingFragment StoreEntitySet="company_address">
+                <ScalarProperty Name="address_serial" ColumnName="address_serial" />
+                <ScalarProperty Name="company_serial" ColumnName="company_serial" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="added_by" ColumnName="added_by" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="company_field_of_work">
+            <EntityTypeMapping TypeName="erp_systemModel.company_field_of_work">
+              <MappingFragment StoreEntitySet="company_field_of_work">
+                <ScalarProperty Name="company_serial" ColumnName="company_serial" />
+                <ScalarProperty Name="work_field" ColumnName="work_field" />
+                <ScalarProperty Name="added_by" ColumnName="added_by" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="company_name">
+            <EntityTypeMapping TypeName="erp_systemModel.company_name">
+              <MappingFragment StoreEntitySet="company_name">
+                <ScalarProperty Name="company_serial" ColumnName="company_serial" />
+                <ScalarProperty Name="company_name1" ColumnName="company_name" />
+                <ScalarProperty Name="added_by" ColumnName="added_by" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="company_telephone">
+            <EntityTypeMapping TypeName="erp_systemModel.company_telephone">
+              <MappingFragment StoreEntitySet="company_telephone">
+                <ScalarProperty Name="branch_serial" ColumnName="branch_serial" />
+                <ScalarProperty Name="telephone_number" ColumnName="telephone_number" />
+                <ScalarProperty Name="added_by" ColumnName="added_by" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contact_person_info">
+            <EntityTypeMapping TypeName="erp_systemModel.contact_person_info">
+              <MappingFragment StoreEntitySet="contact_person_info">
+                <ScalarProperty Name="sales_person_id" ColumnName="sales_person_id" />
+                <ScalarProperty Name="branch_serial" ColumnName="branch_serial" />
+                <ScalarProperty Name="contact_id" ColumnName="contact_id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="is_valid" ColumnName="is_valid" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contact_person_mobile">
+            <EntityTypeMapping TypeName="erp_systemModel.contact_person_mobile">
+              <MappingFragment StoreEntitySet="contact_person_mobile">
+                <ScalarProperty Name="sales_person_id" ColumnName="sales_person_id" />
+                <ScalarProperty Name="branch_serial" ColumnName="branch_serial" />
+                <ScalarProperty Name="contact_id" ColumnName="contact_id" />
+                <ScalarProperty Name="telephone_id" ColumnName="telephone_id" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="countries">
+            <EntityTypeMapping TypeName="erp_systemModel.country">
+              <MappingFragment StoreEntitySet="countries">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="country1" ColumnName="country" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="departments_type">
+            <EntityTypeMapping TypeName="erp_systemModel.departments_type">
+              <MappingFragment StoreEntitySet="departments_type">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="districts">
+            <EntityTypeMapping TypeName="erp_systemModel.district">
+              <MappingFragment StoreEntitySet="districts">
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="district1" ColumnName="district" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="educational_degrees">
+            <EntityTypeMapping TypeName="erp_systemModel.educational_degrees">
+              <MappingFragment StoreEntitySet="educational_degrees">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="educational_degree" ColumnName="educational_degree" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="educational_majors">
+            <EntityTypeMapping TypeName="erp_systemModel.educational_majors">
+              <MappingFragment StoreEntitySet="educational_majors">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="educational_major" ColumnName="educational_major" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employees_business_emails">
+            <EntityTypeMapping TypeName="erp_systemModel.employees_business_emails">
+              <MappingFragment StoreEntitySet="employees_business_emails">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employees_info">
+            <EntityTypeMapping TypeName="erp_systemModel.employees_info">
+              <MappingFragment StoreEntitySet="employees_info">
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="employee_department" ColumnName="employee_department" />
+                <ScalarProperty Name="employee_team" ColumnName="employee_team" />
+                <ScalarProperty Name="employee_position" ColumnName="employee_position" />
+                <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+                <ScalarProperty Name="join_date" ColumnName="join_date" />
+                <ScalarProperty Name="currently_enrolled" ColumnName="currently_enrolled" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employees_passwords">
+            <EntityTypeMapping TypeName="erp_systemModel.employees_passwords">
+              <MappingFragment StoreEntitySet="employees_passwords">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employees_personal_emails">
+            <EntityTypeMapping TypeName="erp_systemModel.employees_personal_emails">
+              <MappingFragment StoreEntitySet="employees_personal_emails">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="generic_work_fields">
+            <EntityTypeMapping TypeName="erp_systemModel.generic_work_fields">
+              <MappingFragment StoreEntitySet="generic_work_fields">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="generic_work_field" ColumnName="generic_work_field" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="positions_type">
+            <EntityTypeMapping TypeName="erp_systemModel.positions_type">
+              <MappingFragment StoreEntitySet="positions_type">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="specific_work_fields">
+            <EntityTypeMapping TypeName="erp_systemModel.specific_work_fields">
+              <MappingFragment StoreEntitySet="specific_work_fields">
+                <ScalarProperty Name="generic_work_field" ColumnName="generic_work_field" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="specific_work_field" ColumnName="specific_work_field" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="states_governorates">
+            <EntityTypeMapping TypeName="erp_systemModel.states_governorates">
+              <MappingFragment StoreEntitySet="states_governorates">
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="state_governorate" ColumnName="state_governorate" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="teams_type">
+            <EntityTypeMapping TypeName="erp_systemModel.teams_type">
+              <MappingFragment StoreEntitySet="teams_type">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="team" ColumnName="team" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

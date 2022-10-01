@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5c942bb041a04d7dad1c047dcda180bc" Name="Diagram1">
+        <EntityTypeShape EntityType="erp_systemModel.city" Width="1.5" PointX="6" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.company_address" Width="1.5" PointX="10.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.company_field_of_work" Width="1.5" PointX="13.5" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.company_name" Width="1.5" PointX="8.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.company_telephone" Width="1.5" PointX="12.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.contact_person_info" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.contact_person_mobile" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.country" Width="1.5" PointX="1.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.departments_type" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.district" Width="1.5" PointX="8.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.educational_degrees" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.educational_majors" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.employees_business_emails" Width="1.5" PointX="8.25" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.employees_info" Width="1.5" PointX="6" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.employees_passwords" Width="1.5" PointX="8.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.employees_personal_emails" Width="1.5" PointX="8.25" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.generic_work_fields" Width="1.5" PointX="9" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.positions_type" Width="1.5" PointX="3.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.specific_work_fields" Width="1.5" PointX="11.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.states_governorates" Width="1.5" PointX="3.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="erp_systemModel.teams_type" Width="1.5" PointX="3.75" PointY="19.75" IsExpanded="true" />
+        <AssociationConnector Association="erp_systemModel.FK_cities_states_governorates" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK_districts_cities" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK_company_address_company_name" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK_company_address_districts" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK_company_address_employees_info" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK_company_telephone_company_address" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK_contact_person_info_company_address" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK__company_f__compa__19DFD96B" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK_company_field_of_work_employees_info" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK_company_field_of_work_specific_work_fields" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK_company_name_employees_info" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK_company_telephone_employees_info" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK__contact_p__sales__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK_contact_person_info_departments_type" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK_contact_person_mobile_contact_person_info" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK_states_governorates_countries" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK_employees_info_departments_type" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK_employees_business_emails_employees_info" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK__employees__emplo__18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK__employees_pa__id__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK__employees_pe__id__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK_employees_info_positions_type" ManuallyRouted="false" />
+        <AssociationConnector Association="erp_systemModel.FK_specific_work_fields_generic_work_fields" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
